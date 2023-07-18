@@ -1,30 +1,42 @@
-import {useEffect} from "react";
+  import { useState, useEffect } from "react";
+  import ReactDOM from 'react-dom';
 
-export default function Modal(props) {
-    function close() {
-        props.modalElement.current.style.display = 'none';
-    }
-
-    function open() {
-        props.modalElement.current.style.display = 'block';
-    }
+  function Modal({res}) {
+    const [response, setResponse] = useState("");
 
     useEffect(() => {
-        props.buttonOpen.current.onclick = open
-    })
+      const dataFetch = async () => {
+        const data = await (
+          await fetch(
+            'https://api.jikan.moe/v4/anime/'+res
+          )
+        ).json();
+        setResponse(data.data);
+      };
 
-return (
-    <div>
-        <h1>Adding a new Person</h1>
-        <form id='personForm' onSubmit={e => props.addPerson(e)}>
-            <p>name<br/><input placeholder="Enter name" name="name" required="required"/></p>
-            <p>password
-                <br/><input type="password" name="password" required="required"/></p>
-            <div id="buttons">
-                <button type="submit">OK</button>
-                <button type="button" onClick={close}>Cancel</button>
-            </div>
-        </form>
-    </div>
-);
-}
+      dataFetch();
+    }, []);
+
+      return (
+        <div>
+          {response && (
+            <div>
+              <img src={response.images.jpg.image_url} alt={response.title}/>
+              <span className="lmj-plant-name">{response.title}</span>
+          </div>
+          )}
+          </div>
+        )
+  }
+
+  export default Modal
+
+    /*useEffect(() => {
+        fetch('https://api.jikan.moe/v4/anime/'+res)
+        .then((fetching) => {
+          return fetching.json();
+        })
+        .then((json) => {
+          setResponse(JSON.parse(JSON.stringify(json)).data)
+        })
+    }, []);*/
