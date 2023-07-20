@@ -1,0 +1,28 @@
+.modalBack {
+	position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flexDirection: row;
+    justifyContent: center;
+    alignItems: center;
+}
+
+.buttonText {
+	width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flexDirection: row;
+    justifyContent: center;
+    alignItems: center;
+}
+
+.buttonPosition {
+	position: absolute;
+    top: 0;
+    right: 0;
+    margin-Right: 100;
+    margin-Top: 20;
+}

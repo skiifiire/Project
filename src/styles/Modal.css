@@ -1,0 +1,16 @@
+.Modal{
+	font-size: large;
+	text-align: center;
+	height: 99%;
+    overflow: auto;
+}
+
+.ModalCategorie {
+	text-align: left;
+	color: blue;
+	font-weight: bold;
+}
+
+.ModalValue {
+	text-align: left;
+}
