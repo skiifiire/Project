@@ -1,10 +1,18 @@
-import '../styles/ReactModal.css'
+import { useEffect } from 'react'
+import '../../styles/ReactModal.css'
 
 function ReactModal({ children, close }) {
 
     const handleClose = () => {
         close();
     };
+
+    useEffect(() => {
+      document.body.classList.add('body-no-scroll');
+      return () => {
+        document.body.classList.remove('body-no-scroll');
+      };
+    }, []);
 
     return (
       <div className="modalBack">

@@ -1,0 +1,16 @@
+.seasonYear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.firstSelect {
+  margin-right: 30px; 
+  margin-left: 10px;
+}
+
+.secondSelect {
+  margin-left: 10px;
+}

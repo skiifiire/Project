@@ -5,6 +5,10 @@
     overflow: auto;
 }
 
+.modalInfo {
+	margin-top: 10px;
+}
+
 .ModalCategorie {
 	text-align: left;
 	color: blue;

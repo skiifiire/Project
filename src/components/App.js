@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Anime from './Anime';
+import Anime from './Anime/Anime';
 import Cv from './Cv';
 import HomePage from './HomePage';
 
