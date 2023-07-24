@@ -5,6 +5,7 @@ function Header () {
 		<div className="header">
 			<a href="/cv" className="link">CV</a>
 			<a href="/anime" className="link">Anime</a>
+			<a href="https://github.com/skiifiire/Project" className="link" target="_blank" rel="noreferrer">Github</a>
 		</div>
 		)
 }
