@@ -1,3 +1,7 @@
+.instruction {
+  text-align: center;
+}
+
 .seasonYear {
   display: flex;
   justify-content: center;

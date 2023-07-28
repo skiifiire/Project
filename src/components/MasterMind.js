@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import $ from "jquery";
+import '../styles/MasterMind.css'
 
 function MasterMind() {
   const [allResults, setAllResults] = useState([]);
@@ -81,15 +82,16 @@ function MasterMind() {
   const renderAllResults = () => {
     return (
       <div>
-        {isGameWon && <p>Victoire !</p>}    
+        {isGameWon && <h1>Victoire !</h1>}    
         {attempts === 10 && isGameWon === false && (
           <div>
-            <p>La réponse était :</p>
+            <h1>La réponse était :</h1>
             {solution.split("").map((letter, i) => (
               <button
                 key={i}
                 disabled
-                style={{ backgroundColor: getColor(letter), width: 25, height: 25, marginRight: 10 }}
+                className="colorButton"
+                style={{ backgroundColor: getColor(letter)}}
               ></button>
             ))}
           </div>
@@ -102,7 +104,8 @@ function MasterMind() {
             <button
               key={i}
               disabled
-              style={{ backgroundColor: getColor(letter), width: 25, height: 25, marginRight: 10 }}
+              className="colorButton"
+              style={{ backgroundColor: getColor(letter)}}
             ></button>
           ))}
           <p>mal placé : {result[4]} / correct : {result[5]}</p>
@@ -119,6 +122,7 @@ function MasterMind() {
         method="post"
         onSubmit={(event) => handleSubmit(event)}
       >
+      <h3>Cliquer sur les bouton pour changer de couleur en trouver la combinaison en 10 tentatives</h3>
       <input type="text" name='solution' value={solution} readOnly="readonly" style={{visibility: "hidden"}}/><br/>
         {possible.map((color, index) => (
         <button
@@ -126,11 +130,9 @@ function MasterMind() {
           type="button"
           name={`button${index + 1}`}
           value={possible[buttonColors[index]]}
+          className="colorButton"
           style={{
             backgroundColor: colors[possible[buttonColors[index]]],
-            width: 25,
-            height: 25,
-            marginRight: 10,
           }}
           onClick={() => handleButtonClick(index)}
         ></button>

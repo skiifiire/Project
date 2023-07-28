@@ -17,12 +17,17 @@
       dataFetch();
     }, [res]);
 
+  const getYouTubeEmbedUrl = (youtubeUrl) => {
+    const videoId = youtubeUrl.split('v=')[1];
+    return `https://www.youtube.com/embed/${videoId}`;
+  };
+
+
     const formatDate = (dateString) => {
       const date = new Date(dateString);
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return date.toLocaleDateString('en-EN', options);
     };
-
       return (
         <div className="Modal">
           {response && (
@@ -78,10 +83,17 @@
                       )}
                   </div>
               )}
-              <div className="modalInfo">
-                  <span className="ModalCategorie">Trailer : </span>
-                  <a href={response.trailer.url} rel="noreferrer" className="lmj-plant-name" target="_blank">{response.trailer.url}</a>
+              {response.trailer.url && (
+                <div className="modalInfo">
+                    <span className="ModalCategorie">Trailer : </span>
+                    <iframe
+                      src={getYouTubeEmbedUrl(response.trailer.url)}
+                      title="YouTube Video"
+                      allowFullScreen
+                      className='iframe'
+                  ></iframe>
               </div>
+              )}
           </div>
           )}
           </div>

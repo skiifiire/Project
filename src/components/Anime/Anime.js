@@ -51,6 +51,7 @@ function Anime() {
 
   return (
     <div>
+      <h3 className="instruction">Cliquez sur une des case pour avoir plus d'information</h3>
       <div className="seasonYear">
         <span className="text">Season : </span>
         <Select options={seasonOptions} className="firstSelect" defaultValue={defaultSeasonOption} onChange={handleSeasonChange}/>
